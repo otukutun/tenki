@@ -17,3 +17,4 @@
 
 #secret
 .secret
+config/application.yml
