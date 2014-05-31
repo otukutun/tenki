@@ -4,8 +4,6 @@ Tenki::Application.routes.draw do
   get "tenki_feeds/destroy"
   get "tenki_feeds/edit"
   get "tenki_feeds/show"
-  #get "sessions/create"
-  #get "sessions/destroy"
   match "/auth/:provider/callback",to: "sessions#create",via: "get"
   match "/signout", to: "sessions#destroy",via: "get"
   root 'tenki_feeds#show'
