@@ -10,8 +10,10 @@ group :test, :development do
   gem 'debugger'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'debugger'
 end
 
+gem "binding_of_caller"
 # Use sqlite3 as the database for Active Record
 
 # Use SCSS for stylesheets

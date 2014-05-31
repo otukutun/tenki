@@ -6,9 +6,9 @@ Tenki::Application.routes.draw do
   get "tenki_feeds/show"
   #get "sessions/create"
   #get "sessions/destroy"
-  match "/auth/twitter/callback",to: "sessions#create",via: "post"
-  match "/signout", to: "sessions#destroy",via: "post"
-  #root 'welcome#index'
+  match "/auth/:provider/callback",to: "sessions#create",via: "get"
+  match "/signout", to: "sessions#destroy",via: "get"
+  root 'tenki_feeds#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
