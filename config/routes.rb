@@ -1,9 +1,18 @@
 Tenki::Application.routes.draw do
+  get "tenki_feeds/new"
+  get "tenki_feeds/create"
+  get "tenki_feeds/destroy"
+  get "tenki_feeds/edit"
+  get "tenki_feeds/show"
+  #get "sessions/create"
+  #get "sessions/destroy"
+  match "/auth/twitter/callback",to: "sessions#create",via: "post"
+  match "/signout", to: "sessions#destroy",via: "post"
+  #root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

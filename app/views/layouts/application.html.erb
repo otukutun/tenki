@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tenki</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+<title>Tenki</title>
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= csrf_meta_tags %>
 </head>
 <body>
+<ul>
+<% if current_user %>
+    <% if notice %>
+    <li><%= notice %></li>
+    <% end %>
+  <li>ようこそ、<%= current_user.name %>さん</li>
+  <li><%= link_to "ログアウト", "/singnout" %></li>
+<% else %>
+  <li><%= link_to "twitterでログイン", "/auth/twitter" %></li>
+<% end %>
+</ul>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
