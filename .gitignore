@@ -17,4 +17,4 @@
 
 #secret
 .secret
-config/application.yml
+config/twitter.yml
