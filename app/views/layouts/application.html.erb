@@ -7,19 +7,34 @@
 <%= csrf_meta_tags %>
 </head>
 <body>
-<ul>
-<% if current_user %>
+<!-- Begin page content -->
+<div class = "container">
+  <div class = "page-header">
+    <h1><%= Config['app_name'] %></h1>
+  </div>
+  <ul>
+  <% if current_user %>
     <% if notice %>
     <li><%= notice %></li>
     <% end %>
-  <li>ようこそ、<%= current_user.name %>さん</li>
-  <li><%= link_to "ログアウト", "/signout" %></li>
-<% else %>
-  <li><%= link_to "twitterでログイン", "/auth/twitter" %></li>
-<% end %>
-</ul>
-
+    <li>ようこそ、<%= current_user.name %>さん</li>
+    <li><%= link_to "ログアウト", "/signout" %></li>
+  <% else %>
+    <li><%= link_to "twitterでログイン", "/auth/twitter" %></li>
+  <% end %>
+  </ul>
+  <p class = "lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+  <p>Use <a href = "../sticky-footer-navbar">the sticky footer with a fixed navbar</a> if need be,  too.</p>
   <%= yield %>
+</div>
+
+<div id = "footer">
+  <div class = "container">
+    <p class = "text-muted">Copyright© All Rights | <a href = "https:// twitter.com/otukutun" target = "_blank">@otukutun</a></p>
+  </div>
+</div>
+
+
 
 </body>
 </html>
