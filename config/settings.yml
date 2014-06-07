@@ -1,2 +1,4 @@
 title: "お天気"
 app_name: "お天ツイ"
+description: "はTwitterのreplyで毎日天気をお知らせするサービスです。"
+footer_about_developer: "開発者:<a href='https://twitter.com/otukutun' target='_blank'>@otukutun</a>"
