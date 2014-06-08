@@ -7,10 +7,11 @@ group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'debugger'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'debugger'
+  gem 'rest-client'
+  gem 'nokogiri'
 end
 
 gem "binding_of_caller"

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531130202) do
+ActiveRecord::Schema.define(version: 20140608081315) do
+
+  create_table "cities", force: true do |t|
+    t.string   "prefecture"
+    t.string   "city"
+    t.integer  "city_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tenki_feeds", force: true do |t|
     t.integer  "location_id"
