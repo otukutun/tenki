@@ -1,2 +1,10 @@
-<h1>TenkiFeeds#new</h1>
-<p>Find me in app/views/tenki_feeds/new.html.erb</p>
+<h1>お天気フィードを登録</h1>
+<%= form_for(@tenki_feed) do |f| %>
+  <%= f.label :location_name %>
+  <%= f.text_field :location_name %>
+
+  <%= f.label :time %>
+  <%= f.text_field :time %>
+
+  <%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>
