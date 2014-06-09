@@ -4,7 +4,6 @@ class City < ActiveRecord::Base
     xml = get_livedoor_city_xml
     cities = parse_xml xml
     save_city cities
-    
   end
 
   private

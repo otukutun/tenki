@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608081315) do
+ActiveRecord::Schema.define(version: 20140609141104) do
 
   create_table "cities", force: true do |t|
     t.string   "prefecture"
     t.string   "city"
     t.integer  "city_id"
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "prefectures", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
