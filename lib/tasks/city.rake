@@ -9,9 +9,15 @@ namespace :db do
     ActiveRecord::Base.establish_connection @config
   end
 
-  desc "Insert Cities infomation"
-  task :insert => :environment do
+  desc "Insert Cities information"
+  task :insert_cities => :environment do
     city = City.new
     city.insert_cities
+  end
+
+  desc "Insert Prefectures information"
+  task :insert_prefectures => :environment do
+    p = Prefecture.new
+    p.insert_prefectures
   end
 end

@@ -4,7 +4,7 @@ class Prefecture < ActiveRecord::Base
     html = fetch_prefectures
     html.encode('utf-8')
     prefectures = parse_html html
-    #p prefectures
+    save_prefectures(prefectures)
   end
 
   private
@@ -24,7 +24,7 @@ class Prefecture < ActiveRecord::Base
     doc.xpath('//tr').each do |node|
       #children = node.children
       #p remove_furigana(node.children.children[1].text) unless count == 1
-      prefectures << remove_furigana(node.children.children[1].text) unless count == 1
+      prefectures << { 'name' => remove_furigana(node.children.children[1].text) } unless count == 1
       count += 1
     end
     return prefectures
@@ -35,4 +35,10 @@ class Prefecture < ActiveRecord::Base
     return $1.delete("(")
   end
 
+  def save_prefectures(prefectures)
+    prefectures.each do |prefecture|
+      p = Prefecture.new(prefecture)
+      puts "Failed" unless p.save
+    end
+  end
 end
