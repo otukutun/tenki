@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611142620) do
+ActiveRecord::Schema.define(version: 20140614052116) do
 
   create_table "cities", force: true do |t|
     t.string   "prefecture"
@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(version: 20140611142620) do
   end
 
   create_table "tenki_feeds", force: true do |t|
-    t.integer  "location_id"
+    t.integer  "prefecture_id"
     t.string   "location_name"
     t.time     "time"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "city_id"
   end
 
   create_table "users", force: true do |t|
