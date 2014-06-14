@@ -20,12 +20,18 @@ class City < ActiveRecord::Base
   def parse_xml(response)
     cities = Array.new
     xml = Nokogiri::XML(response)
+    prefecture_id = 1
     xml.xpath('//pref').each do |pref|
       pref.children.each do |city|
         if city.node_name == 'city'
-          cities <<  {'prefecture' => pref['title'], 'city' => city['title'], 'city_id' => city['id'], 'url'  => city['source']}
+          case pref['title']
+          when '道北', '道東', '道南', '道央'
+              prefecture_id = 1
+          end
+          cities <<  {'prefecture' => pref['title'], 'city' => city['title'], 'city_id' => city['id'], 'url'  => city['source'], 'prefecture_id' => prefecture_id}
         end
       end
+      prefecture_id += 1
     end
     return cities
   end

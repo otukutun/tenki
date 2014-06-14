@@ -20,4 +20,13 @@ namespace :db do
     p = Prefecture.new
     p.insert_prefectures
   end
+
+  desc "Insert Prefectures and Cities information"
+  task :insert_prefectures_and_cities => :environment do
+    p = Prefecture.new
+    p.insert_prefectures
+    city = City.new
+    city.insert_cities
+  end
+
 end

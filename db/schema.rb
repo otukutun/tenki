@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609141104) do
+ActiveRecord::Schema.define(version: 20140611142620) do
 
   create_table "cities", force: true do |t|
     t.string   "prefecture"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140609141104) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "prefecture_id"
   end
 
   create_table "prefectures", force: true do |t|
