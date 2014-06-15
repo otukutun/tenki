@@ -1,5 +1,6 @@
 class City < ActiveRecord::Base
-  
+  belongs_to :prefecture, depentent: true
+
   def insert_cities()
     xml = get_livedoor_city_xml
     cities = parse_xml xml
