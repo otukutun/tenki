@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-  belongs_to :prefecture, depentent: true
+  belongs_to :prefecture, :dependent => :destroy
 
   def insert_cities()
     xml = get_livedoor_city_xml

@@ -1,4 +1,5 @@
 class Prefecture < ActiveRecord::Base
+  has_one :city
 
   def insert_prefectures
     html = fetch_prefectures
@@ -19,11 +20,8 @@ class Prefecture < ActiveRecord::Base
   def parse_html(html)
     prefectures = Array.new
     doc = Nokogiri::HTML.parse(html, nil,"SHIFT-JIS")
-    #puts doc
     count = 1
     doc.xpath('//tr').each do |node|
-      #children = node.children
-      #p remove_furigana(node.children.children[1].text) unless count == 1
       prefectures << { 'name' => remove_furigana(node.children.children[1].text) } unless count == 1
       count += 1
     end

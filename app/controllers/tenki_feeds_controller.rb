@@ -1,6 +1,8 @@
 class TenkiFeedsController < ApplicationController
   def new
     @tenki_feed = TenkiFeed.new
+    @prefectures = Prefecture.all
+    @cities = City.all
   end
 
   def create
@@ -21,8 +23,15 @@ class TenkiFeedsController < ApplicationController
   def show
   end
 
+  def cities_select
+    if request.xhr?
+      @cities = City.all
+      render partial: 'cities_select', locals: { prefecture_id: params[:prefecture_id], cities: @cities}
+    end
+  end
+
   private
   def tenki_feed_params
-    params.require(:tenki_feed).permit(:location_id, :location_name, :time, :user_id)
+    params.require(:tenki_feed).permit(:prefecture_id, :city_id, :time, :user_id)
   end
 end

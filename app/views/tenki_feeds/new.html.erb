@@ -1,7 +1,10 @@
 <h1>お天気フィードを登録</h1>
 <%= form_for(@tenki_feed) do |f| %>
-  <%= f.label :location_name %>
-  <%= f.text_field :location_name %>
+  <%= f.label :prefecture_id %>
+  <%= f.collection_select :prefecture_id, @prefectures, :id, :name, :prompt => "選択してください。" %>
+  <%= render partial: 'tenki_feeds/cities_select', locals: {prefecture_id: @prefectures.first.id, cities: @cities} %>
+
+  <%= f.label :city_id %>
 
   <%= f.label :time %>
   <%= f.time_select :time %>
